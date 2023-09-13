@@ -23,11 +23,19 @@ namespace Login_Los_2_chinos
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             conn.Open();
-            //Se usan 'comillas simples cuando es string' sino "123"
-            string Consulta = "insert into Articulos values ('" + txtDetalle.Text + "','" + txtPresentacion.Text + "'," + txtVenta.Text + "," + txtCompra.Text +")";
-            SqlCommand comandoAgregar = new SqlCommand(Consulta, conn);
-            comandoAgregar.ExecuteNonQuery();
-            VariablesGlobales.MessageBox_Show("   AGREGAR","EL ARTICULO FUE AGREGADO CORRECTAMENTE",false);
+            VariablesGlobales.MessageBox_Show("   ARTICULOS", "¿ESTAS SEGURO DE AGREGAR EL PRODUCTO?", true);
+            if (VariablesGlobales.ResultadoDialogo == "YES")
+            {
+                //Se usan 'comillas simples cuando es string' sino "123"
+                string Consulta = "insert into Articulos values ('" + txtDetalle.Text + "','" + txtPresentacion.Text + "'," + txtVenta.Text + "," + txtCompra.Text + ")";
+                SqlCommand comandoAgregar = new SqlCommand(Consulta, conn);
+                comandoAgregar.ExecuteNonQuery();
+                VariablesGlobales.MessageBox_Show("   ARTICULOS", "EL PRODUCTO FUE AGREGADO CORRECTAMENTE", false);
+            }
+            if (VariablesGlobales.ResultadoDialogo == "NO")
+            {
+                VariablesGlobales.MessageBox_Show("   PRODUCTO", "EL PRODUTO NO FUE AGREGADO", false);
+            }
             LIMIAR();
             conn.Close();
         }
@@ -86,6 +94,26 @@ namespace Login_Los_2_chinos
                 btnAgregar.Focus();
                 e.Handled = true;
             }
+        }
+
+        private void FromAgregar_Activated(object sender, EventArgs e)
+        {
+            //Refrescar la pagina cuando le doy el foco 
+            dtgAgregar.Refresh();
+            SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM Articulos", conn);
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            dtgAgregar.DataSource = tabla;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

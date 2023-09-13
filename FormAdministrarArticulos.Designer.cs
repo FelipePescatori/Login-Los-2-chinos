@@ -215,6 +215,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAdministrarArticulos";
             this.Text = "WS";
+            this.Activated += new System.EventHandler(this.FormAdministrarArticulos_Activated);
             this.Load += new System.EventHandler(this.FormAdministrarArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgAdministrarArticulos)).EndInit();
             this.panel1.ResumeLayout(false);

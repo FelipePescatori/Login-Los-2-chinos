@@ -108,6 +108,7 @@ namespace Login_Los_2_chinos
             if (string.IsNullOrWhiteSpace(txtContraseña.Text))
             {
                 txtContraseña.Text = "CONTRASEÑA";
+                pictureOcultar.BringToFront();
                 txtContraseña.ForeColor = Color.LightGray;
                 txtContraseña.PasswordChar = '\0';
             }
@@ -169,8 +170,12 @@ namespace Login_Los_2_chinos
                 e.Handled = true;
             }
         }
+
         #endregion
 
-
+        private void Login_Click(object sender, EventArgs e)
+        {
+            this.Focus();
+        }
     }
 }

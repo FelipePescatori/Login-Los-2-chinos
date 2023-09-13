@@ -59,18 +59,12 @@ namespace Login_Los_2_chinos
                 {
                     comando.ExecuteNonQuery();
                     VariablesGlobales.MessageBox_Show("   PRODUCTO", "EL PRODUTO FUE ELIMINADO", false);
-                    dtgAdministrarArticulos.Refresh();
-                    SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM Articulos", conn);
-                    DataTable tabla = new DataTable();
-                    adaptador.Fill(tabla);
-                    dtgAdministrarArticulos.DataSource = tabla;
                     txtBuscar.Clear();
                 } if (VariablesGlobales.ResultadoDialogo == "NO")
                 {
                     VariablesGlobales.MessageBox_Show("   PRODUCTO", "EL PRODUTO NO FUE ELIMINAR", false);
                     txtBuscar.Clear();
                 }
-                dtgAdministrarArticulos.Invalidate();
                 conn.Close();
             }
 
@@ -100,5 +94,14 @@ namespace Login_Los_2_chinos
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void FormAdministrarArticulos_Activated(object sender, EventArgs e)
+        {
+            //Refrescar la pagina cuando le doy el foco 
+            dtgAdministrarArticulos.Refresh();
+            SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM Articulos", conn);
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            dtgAdministrarArticulos.DataSource = tabla;
+        }
     }
 }
