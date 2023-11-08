@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,13 +34,78 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gerente.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Vision, Version=2.2.5.0, Culture=neutral, PublicKeyToken=b612fa915eefaa06, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Vision.2.2.5\lib\AForge.Vision.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
       <HintPath>C:\Users\felip\OneDrive\Escritorio\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
+    <Reference Include="Emgu.CV.Bitmap, Version=4.4.0.4099, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\Emgu.CV.Bitmap.4.4.0.4099\lib\netstandard2.0\Emgu.CV.Bitmap.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Platform.NetStandard, Version=4.4.0.4099, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\Emgu.CV.4.4.0.4099\lib\netstandard2.0\Emgu.CV.Platform.NetStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>packages\FluentValidation.11.7.1\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.4.7.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,94 +115,200 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UtilsLibrary">
+      <HintPath>..\WindowsFormsApp3\UtilsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ValidarLibrary">
+      <HintPath>..\WindowsFormsApp3\ValidarLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrador.cs">
+    <Compile Include="Articulos\AdministrarArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador.Designer.cs">
+    <Compile Include="Articulos\AdministrarArticulos.Designer.cs">
+      <DependentUpon>AdministrarArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login Register\PantallaDeCarga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login Register\PantallaDeCarga.Designer.cs">
+      <DependentUpon>PantallaDeCarga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paneles\Administrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paneles\Administrador.Designer.cs">
       <DependentUpon>Administrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Articulos.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="Articulos\Articulos.cs" />
+    <Compile Include="Paneles\CAMARA.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Paneles\CAMARA.Designer.cs">
+      <DependentUpon>CAMARA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\FormEliminarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\FormEliminarProveedor.Designer.cs">
+      <DependentUpon>FormEliminarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\FormAgregarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\FormAgregarProveedor.Designer.cs">
+      <DependentUpon>FormAgregarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\FormModificarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\FormModificarProveedor.Designer.cs">
+      <DependentUpon>FormModificarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\FromPorveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\FromPorveedores.Designer.cs">
+      <DependentUpon>FromPorveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login Register\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login Register\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAdministrarArticulos.cs">
+    <Compile Include="Articulos\FormEliminarArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAdministrarArticulos.Designer.cs">
-      <DependentUpon>FormAdministrarArticulos.cs</DependentUpon>
+    <Compile Include="Articulos\FormEliminarArticulos.Designer.cs">
+      <DependentUpon>FormEliminarArticulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormModificar.cs">
+    <Compile Include="Articulos\FormModificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormModificar.Designer.cs">
+    <Compile Include="Articulos\FormModificar.Designer.cs">
       <DependentUpon>FormModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FromAgregar.cs">
+    <Compile Include="Articulos\FromAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FromAgregar.Designer.cs">
+    <Compile Include="Articulos\FromAgregar.Designer.cs">
       <DependentUpon>FromAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FromEliminar.cs">
+    <Compile Include="Paneles\MessageBoxFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FromEliminar.Designer.cs">
-      <DependentUpon>FromEliminar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MessageBoxFrom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MessageBoxFrom.Designer.cs">
+    <Compile Include="Paneles\MessageBoxFrom.Designer.cs">
       <DependentUpon>MessageBoxFrom.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operador.cs">
+    <Compile Include="Paneles\Operador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operador.Designer.cs">
+    <Compile Include="Paneles\Operador.Designer.cs">
       <DependentUpon>Operador.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuarios.cs" />
-    <Compile Include="VariablesGlobales.cs" />
-    <EmbeddedResource Include="Administrador.resx">
+    <Compile Include="Login Register\RegistroDeUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login Register\RegistroDeUsuarios.Designer.cs">
+      <DependentUpon>RegistroDeUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login Register\Usuarios.cs" />
+    <Compile Include="Constructores y clases\VariablesGlobales.cs" />
+    <Compile Include="Stock\FormStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\FormStock.Designer.cs">
+      <DependentUpon>FormStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Venta\CarritoItem.cs" />
+    <Compile Include="Venta\FormCantidadEnGramos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venta\FormCantidadEnGramos.Designer.cs">
+      <DependentUpon>FormCantidadEnGramos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Venta\FormVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venta\FormVenta.Designer.cs">
+      <DependentUpon>FormVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Venta\TicketVenta.cs" />
+    <EmbeddedResource Include="Articulos\AdministrarArticulos.resx">
+      <DependentUpon>AdministrarArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login Register\PantallaDeCarga.resx">
+      <DependentUpon>PantallaDeCarga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paneles\Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Paneles\CAMARA.resx">
+      <DependentUpon>CAMARA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\FormEliminarProveedor.resx">
+      <DependentUpon>FormEliminarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\FormAgregarProveedor.resx">
+      <DependentUpon>FormAgregarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\FormModificarProveedor.resx">
+      <DependentUpon>FormModificarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\FromPorveedores.resx">
+      <DependentUpon>FromPorveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login Register\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAdministrarArticulos.resx">
-      <DependentUpon>FormAdministrarArticulos.cs</DependentUpon>
+    <EmbeddedResource Include="Articulos\FormEliminarArticulos.resx">
+      <DependentUpon>FormEliminarArticulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormModificar.resx">
+    <EmbeddedResource Include="Articulos\FormModificar.resx">
       <DependentUpon>FormModificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FromAgregar.resx">
+    <EmbeddedResource Include="Articulos\FromAgregar.resx">
       <DependentUpon>FromAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FromEliminar.resx">
-      <DependentUpon>FromEliminar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MessageBoxFrom.resx">
+    <EmbeddedResource Include="Paneles\MessageBoxFrom.resx">
       <DependentUpon>MessageBoxFrom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operador.resx">
+    <EmbeddedResource Include="Paneles\Operador.resx">
       <DependentUpon>Operador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="Login Register\RegistroDeUsuarios.resx">
+      <DependentUpon>RegistroDeUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\FormStock.resx">
+      <DependentUpon>FormStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Venta\FormCantidadEnGramos.resx">
+      <DependentUpon>FormCantidadEnGramos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Venta\FormVenta.resx">
+      <DependentUpon>FormVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -149,5 +322,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Venta\Tickets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gerente.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Emgu.CV.runtime.windows.4.4.0.4099\build\Emgu.CV.runtime.windows.targets" Condition="Exists('packages\Emgu.CV.runtime.windows.4.4.0.4099\build\Emgu.CV.runtime.windows.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Emgu.CV.runtime.windows.4.4.0.4099\build\Emgu.CV.runtime.windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Emgu.CV.runtime.windows.4.4.0.4099\build\Emgu.CV.runtime.windows.targets'))" />
+  </Target>
 </Project>

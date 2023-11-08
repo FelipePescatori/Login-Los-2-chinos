@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Login_Los_2_chinos.Login_Register;
+using Login_Los_2_chinos.Venta;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
