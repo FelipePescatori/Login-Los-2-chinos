@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
 using System.Data;
-using ValidarLibrary;
 using FluentValidation;
 using System.Text.RegularExpressions;
 
@@ -15,30 +14,6 @@ namespace Login_Los_2_chinos
 {
     public class VariablesGlobales
     {
-        #region NUMERO DE VENTA 
-        public class NumeroDeVentaGenerator
-        {
-            private int numeroSerie = 1;
-            private int numeroVenta = 0;
-
-            public string GenerarNumeroDeVenta()
-            {
-                if (numeroVenta >= 99999)
-                {
-                    // Cuando el número de venta llega a 99999, reinicia y aumenta el número de serie
-                    numeroSerie++;
-                    numeroVenta = 0;
-                }
-
-                string numeroDeVenta = numeroSerie.ToString("D4") + " - " + numeroVenta.ToString("D5");
-
-                // Incrementa el número de venta para la próxima vez
-                numeroVenta++;
-
-                return numeroDeVenta;
-            }
-        }
-        #endregion
         #region MENSAJE DE ERROR 
 
         public static string ResultadoDialogo;

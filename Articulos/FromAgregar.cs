@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using ValidarLibrary;
+
 using UserEsquema;
 using AForge.Video.DirectShow;
 using AForge.Video;
@@ -311,7 +311,7 @@ namespace Login_Los_2_chinos
         }
         private void txtArticuloidd_TextChanged(object sender, EventArgs e)
         {
-            string filtro = txtArticuloid.Text;
+            string filtro = txtArticuloidBuscar.Text;
             if (int.TryParse(filtro, out int numeroFiltro))
             {
                 (dtgAgregar.DataSource as DataTable).DefaultView.RowFilter = $"Articuloid = {numeroFiltro}";

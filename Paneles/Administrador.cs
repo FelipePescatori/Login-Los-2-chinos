@@ -1,5 +1,4 @@
-﻿
-using Login_Los_2_chinos.Stock;
+﻿using Login_Los_2_chinos.Stock;
 using Login_Los_2_chinos.Venta;
 using System;
 using System.Data.SqlClient;
@@ -13,10 +12,12 @@ namespace Login_Los_2_chinos
         SqlConnection conn = new SqlConnection("Server=FELIPE\\SQLEXPRESS;Database=Los 2 Chinos;Trusted_Connection=True");
 
         #region HORA / TIEMPO / NOMBRE
-        public Administrador(string Nombre)
+        public Administrador(string Nombre, string UsuarioId)
         {
             InitializeComponent();
             lbNombre.Text = Nombre;
+            lblUsuarioId.Text = UsuarioId;
+
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -42,30 +43,23 @@ namespace Login_Los_2_chinos
 
         private void btnCamara_Click(object sender, EventArgs e)
         {
-            var VentanaCamara = new CAMARA();
-            VentanaCamara.ShowDialog();
+            // Verifica si hay un formulario abierto y ciérralo si es necesario
+            if (formularioAbierto != null && !formularioAbierto.IsDisposed)
+            {
+                formularioAbierto.Close();
+            }
+            FormCamaras AbrirCamaras = new FormCamaras();
+
+            AbrirCamaras.TopLevel = false;
+            AbrirCamaras.FormBorderStyle = FormBorderStyle.None;
+            AbrirCamaras.Dock = DockStyle.Fill;
+
+
+            PanelAdministrador.Controls.Clear();
+            PanelAdministrador.Controls.Add(AbrirCamaras);
+            AbrirCamaras.Show();
+            formularioAbierto = AbrirCamaras;
         }
-
-
-
-
-
-        private void lbHora_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
 
         FromAgregar fromagregar = new FromAgregar();
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -81,44 +75,8 @@ namespace Login_Los_2_chinos
                 this.FormBorderStyle = FormBorderStyle.None;
             }
         }
-
-        private void btnStock_Click(object sender, EventArgs e)
-        {
-            FormStock AbrirStock = new FormStock();
-
-            // Establece el formulario secundario como un control secundario del panel
-            AbrirStock.TopLevel = false;
-            AbrirStock.FormBorderStyle = FormBorderStyle.None;
-            AbrirStock.Dock = DockStyle.Fill;
-
-            // Limpia cualquier control existente en el panel
-            PanelAdministrador.Controls.Clear();
-
-            // Agrega el formulario secundario al panel
-            PanelAdministrador.Controls.Add(AbrirStock);
-
-            // Muestra el formulario secundario
-            AbrirStock.Show();
-        }
-
-        private void btnHistorialVentas_Click(object sender, EventArgs e)
-        {
-            FormStock AbrirStock = new FormStock();
-
-            // Establece el formulario secundario como un control secundario del panel
-            AbrirStock.TopLevel = false;
-            AbrirStock.FormBorderStyle = FormBorderStyle.None;
-            AbrirStock.Dock = DockStyle.Fill;
-
-            // Limpia cualquier control existente en el panel
-            PanelAdministrador.Controls.Clear();
-
-            // Agrega el formulario secundario al panel
-            PanelAdministrador.Controls.Add(AbrirStock);
-
-            // Muestra el formulario secundario
-            AbrirStock.Show();
-        }
+        private Form formularioAbierto = null;
+        
         #region BTN VENTA
         bool PresVenta = false;
         private void btnVenta_Click(object sender, EventArgs e)
@@ -126,7 +84,12 @@ namespace Login_Los_2_chinos
             ResetearColor();
             PanelVenta.BackColor = Color.Green;
             PresVenta = true;
-            FormVenta AbrirVenta = new FormVenta();
+            // Verifica si hay un formulario abierto y ciérralo si es necesario
+            if (formularioAbierto != null && !formularioAbierto.IsDisposed)
+            {
+                formularioAbierto.Close();
+            }
+            FormVenta AbrirVenta = new FormVenta(lblUsuarioId.Text);
 
             AbrirVenta.TopLevel = false;
             AbrirVenta.FormBorderStyle = FormBorderStyle.None;
@@ -136,6 +99,7 @@ namespace Login_Los_2_chinos
             PanelAdministrador.Controls.Clear();
             PanelAdministrador.Controls.Add(AbrirVenta);
             AbrirVenta.Show();
+            formularioAbierto = AbrirVenta;
         }
         private void btnVenta_MouseEnter(object sender, EventArgs e)
         {
@@ -151,6 +115,7 @@ namespace Login_Los_2_chinos
 
         }
         #endregion
+
         #region BTN ARTICULOS
 
         bool PreesArticulo = false;
@@ -160,15 +125,20 @@ namespace Login_Los_2_chinos
             PanelArticulos.BackColor = Color.FromArgb(255, 124, 12);
             btnArticulos.BackColor = Color.Gainsboro;
             PreesArticulo = true;
-            FromAgregar VentanaAdministrarArticulos = new FromAgregar();
+            if (formularioAbierto != null && !formularioAbierto.IsDisposed)
+            {
+                formularioAbierto.Close();
+            }
+            FromAgregar AbririArticulos = new FromAgregar();
 
-            VentanaAdministrarArticulos.TopLevel = false;
-            VentanaAdministrarArticulos.FormBorderStyle = FormBorderStyle.None;
-            VentanaAdministrarArticulos.Dock = DockStyle.Fill;
+            AbririArticulos.TopLevel = false;
+            AbririArticulos.FormBorderStyle = FormBorderStyle.None;
+            AbririArticulos.Dock = DockStyle.Fill;
             PanelAdministrador.Controls.Clear();
 
-            PanelAdministrador.Controls.Add(VentanaAdministrarArticulos);
-            VentanaAdministrarArticulos.Show();
+            PanelAdministrador.Controls.Add(AbririArticulos);
+            AbririArticulos.Show();
+            formularioAbierto = AbririArticulos;
         }
         private void btnArticulos_MouseEnter(object sender, EventArgs e)
         {
@@ -192,14 +162,17 @@ namespace Login_Los_2_chinos
             PanelUsuario.BackColor = Color.FromArgb(104, 84, 196);
             btnUsuarios.BackColor = Color.Gainsboro;
             PreesUsuario = true;
-
-            var VentanaDeUsuario = new RegistroDeUsuarios();
-            VentanaDeUsuario.ShowDialog();
+            // Verifica si hay un formulario abierto y ciérralo si es necesario
+            if (formularioAbierto != null && !formularioAbierto.IsDisposed)
+            {
+                formularioAbierto.Close();
+            }
+            var AbrirUsuario = new RegistroDeUsuarios();
+            AbrirUsuario.ShowDialog();
             btnUsuarios.FlatStyle = FlatStyle.Flat;
             btnUsuarios.FlatAppearance.BorderSize = 0;
-
-
-
+            // Actualiza la variable del formulario abierto
+            formularioAbierto = AbrirUsuario;
         }
         private void btnUsuarios_MouseEnter(object sender, EventArgs e)
         {
@@ -223,6 +196,11 @@ namespace Login_Los_2_chinos
             PanelProveedores.BackColor = Color.FromArgb(24, 116, 204);
             btnProveedores.BackColor = Color.Gainsboro;
             PreesProveedores = true;
+            // Verifica si hay un formulario abierto y ciérralo si es necesario
+            if (formularioAbierto != null && !formularioAbierto.IsDisposed)
+            {
+                formularioAbierto.Close();
+            }
             FromPorveedores VentanaProveedores = new FromPorveedores();
 
             VentanaProveedores.TopLevel = false;
@@ -232,6 +210,7 @@ namespace Login_Los_2_chinos
 
             PanelAdministrador.Controls.Add(VentanaProveedores);
             VentanaProveedores.Show();
+            formularioAbierto = VentanaProveedores;
         }
         private void btnProveedores_MouseEnter(object sender, EventArgs e)
         {
@@ -245,6 +224,52 @@ namespace Login_Los_2_chinos
             }
         }
         #endregion
+
+        #region BTN HISTORIAL DE VENTAS
+        bool PreesHistorialDeVenta = false;
+        private void btnHistorialDeVentas_Click(object sender, EventArgs e)
+        {
+            ResetearColor();
+            PanelHistorialDeVenta.BackColor = Color.Yellow;
+            btnHistorialDeVentas.BackColor = Color.Gainsboro;
+            PreesHistorialDeVenta = true;
+            // Verifica si hay un formulario abierto y ciérralo si es necesario
+            if (formularioAbierto != null && !formularioAbierto.IsDisposed)
+            {
+                formularioAbierto.Close();
+            }
+            HistorialVentas AbrirStock = new HistorialVentas();
+
+            // Establece el formulario secundario como un control secundario del panel
+            AbrirStock.TopLevel = false;
+            AbrirStock.FormBorderStyle = FormBorderStyle.None;
+            AbrirStock.Dock = DockStyle.Fill;
+
+            // Limpia cualquier control existente en el panel
+            PanelAdministrador.Controls.Clear();
+
+            // Agrega el formulario secundario al panel
+            PanelAdministrador.Controls.Add(AbrirStock);
+
+            // Muestra el formulario secundario
+            AbrirStock.Show();
+            // Actualiza la variable del formulario abierto
+            formularioAbierto = AbrirStock;
+        }
+        private void btnHistorialDeVentas_MouseEnter(object sender, EventArgs e)
+        {
+            PanelHistorialDeVenta.BackColor = Color.Yellow;
+        }
+
+        private void btnHistorialDeVentas_MouseLeave(object sender, EventArgs e)
+        {
+            if (!PreesHistorialDeVenta)
+            {
+                PanelHistorialDeVenta.BackColor = Color.White;
+            }
+        }
+        #endregion  
+
         #region MANEJAR COLORES
         private void ResetearColor()
         {
@@ -260,6 +285,9 @@ namespace Login_Los_2_chinos
             PanelProveedores.BackColor = Color.White;
             btnProveedores .BackColor = Color.White;
             PreesProveedores = false;
+            PanelHistorialDeVenta .BackColor = Color.White;
+            btnHistorialDeVentas.BackColor = Color.White;
+            PreesHistorialDeVenta = false;
         }
         #endregion
 

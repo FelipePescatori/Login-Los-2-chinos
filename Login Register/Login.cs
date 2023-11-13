@@ -25,13 +25,14 @@ namespace Login_Los_2_chinos
 
         #region METODOS VALIDAR DATOS USUARIO
 
-        public void login(string Usuario, string Contrasena)
+        public int login(string Usuario, string Contrasena)
         {
+            int usuarioID = -1;  // Valor por defecto en caso de que no se encuentre un usuario válido
 
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT Nombre, Acceso FROM Usuarios WHERE Usuario = @usuario AND Contrasena = @contrasena", conn);
+                SqlCommand cmd = new SqlCommand("SELECT UsuarioID, Nombre, Acceso FROM Usuarios WHERE Usuario = @usuario AND Contrasena = @contrasena", conn);
                 cmd.Parameters.AddWithValue("@usuario", Usuario);
                 cmd.Parameters.AddWithValue("@contrasena", Contrasena);
                 SqlDataAdapter set = new SqlDataAdapter(cmd);
@@ -39,10 +40,12 @@ namespace Login_Los_2_chinos
                 set.Fill(dt);
                 if (dt.Rows.Count == 1)
                 {
+                    usuarioID = Convert.ToInt32(dt.Rows[0]["UsuarioID"]);  // Captura el UsuarioID si se encuentra un usuario válido
                     this.Hide();
                     if (dt.Rows[0]["Acceso"].ToString() == "Administrador")
                     {
-                        new PantallaDeCarga(dt.Rows[0][0].ToString()).Show();
+                        new PantallaDeCarga(dt.Rows[0]["Nombre"].ToString(), usuarioID).Show();
+
                     }
                     else if ((dt.Rows[0][1].ToString() == "Operador"))
                     {
@@ -51,7 +54,7 @@ namespace Login_Los_2_chinos
                 }
                 else
                 {
-                    VariablesGlobales.MessageBox_Show("    Error", "   Usuario o Contraseña incorrectos",false);
+                    VariablesGlobales.MessageBox_Show("    Error", "   Usuario o Contraseña incorrectos", false);
                     txtUsuario.Clear();
                     txtUsuario.Text = "USUARIO";
                     txtContraseña.Clear();
@@ -61,12 +64,16 @@ namespace Login_Los_2_chinos
             }
             catch (Exception ex)
             {
- 
-                MessageBox.Show("Error: "+ ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
-            finally { conn.Close(); }
+            finally
+            {
+                conn.Close();
+            }
 
+            return usuarioID;
         }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             login(this.txtUsuario.Text, this.txtContraseña.Text);
@@ -123,6 +130,7 @@ namespace Login_Los_2_chinos
         }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            //Application.Exit();
             Environment.Exit(0);
         }
         private void btnMinimizar_Click(object sender, EventArgs e)

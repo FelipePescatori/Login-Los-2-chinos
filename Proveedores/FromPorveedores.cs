@@ -1,4 +1,4 @@
-﻿using Login_Los_2_chinos.Proveedores;
+﻿using Login_Los_2_chinos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

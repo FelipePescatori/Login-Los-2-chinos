@@ -18,8 +18,7 @@ namespace Login_Los_2_chinos.Venta
 {
     public partial class FormVenta : Form
     {
-
-        public FormVenta()
+        public FormVenta(string UsuarioId)
         {
             InitializeComponent();
             Camara = new VideoCaptureDevice();
@@ -29,13 +28,12 @@ namespace Login_Los_2_chinos.Venta
             EncenderCamara();
             this.KeyPreview = true;
             this.KeyDown += Form_KeyDown;
+            lblUsuarioId.Text = UsuarioId;
         }
 
         SqlConnection conn = new SqlConnection("Server=FELIPE\\SQLEXPRESS;Database=Los 2 Chinos;Trusted_Connection=True");
 
         #region DATAGRID 
-
-
         private void dtgVentas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -308,10 +306,10 @@ namespace Login_Los_2_chinos.Venta
         {
             if (e.KeyCode == Keys.Enter)
             {
-                // Simular un clic en el botón
-                btnVender.PerformClick();
+                btnVender.PerformClick();// Simular un clic en el botón
             }
         }
+
         private void btnVender_Click(object sender, EventArgs e)
         {
             ventaFinalizada = true;
@@ -331,8 +329,8 @@ namespace Login_Los_2_chinos.Venta
                 totalText = totalText.Replace("$", "");
                 if (decimal.TryParse(totalText, out decimal Monto))
                 {
-                    int usuarioID = 1; // Obten el usuarioID adecuadamente.
-                    RegistrarVentaEnTablaDeVentas(numeroVenta, Monto, usuarioID);
+                    string userId = lblUsuarioId.Text;
+                    RegistrarVentaEnTablaDeVentas(numeroVenta, Monto, Int32.Parse(userId));
                 }
 
                 TicketVenta ticket = new TicketVenta(numeroVenta, DateTime.Now, carrito, Monto, 1);

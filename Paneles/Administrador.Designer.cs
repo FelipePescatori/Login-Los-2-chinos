@@ -36,6 +36,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.PanelAdministrador = new System.Windows.Forms.Panel();
+            this.btnCamara = new System.Windows.Forms.Button();
+            this.btnHistorialDeVentas = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -56,17 +58,12 @@
             this.PanelUsuario = new System.Windows.Forms.Panel();
             this.PanelArticulos = new System.Windows.Forms.Panel();
             this.PanelVenta = new System.Windows.Forms.Panel();
-            this.btnCamara = new System.Windows.Forms.Button();
-            this.PanelStock = new System.Windows.Forms.Panel();
-            this.PanelHistorialVentas = new System.Windows.Forms.Panel();
-            this.PanelCamraDeSeguridad = new System.Windows.Forms.Panel();
-            this.btnStock = new System.Windows.Forms.Button();
-            this.btnHistorialVentas = new System.Windows.Forms.Button();
+            this.lblUsuarioId = new System.Windows.Forms.Label();
+            this.PanelHistorialDeVenta = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.PanelAdministrador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -130,17 +127,51 @@
             // 
             // PanelAdministrador
             // 
-            this.PanelAdministrador.Controls.Add(this.btnStock);
-            this.PanelAdministrador.Controls.Add(this.btnHistorialVentas);
-            this.PanelAdministrador.Controls.Add(this.btnCamara);
-            this.PanelAdministrador.Controls.Add(this.PanelStock);
-            this.PanelAdministrador.Controls.Add(this.PanelHistorialVentas);
-            this.PanelAdministrador.Controls.Add(this.PanelCamraDeSeguridad);
             this.PanelAdministrador.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelAdministrador.Location = new System.Drawing.Point(252, 30);
             this.PanelAdministrador.Name = "PanelAdministrador";
             this.PanelAdministrador.Size = new System.Drawing.Size(873, 570);
             this.PanelAdministrador.TabIndex = 15;
+            // 
+            // btnCamara
+            // 
+            this.btnCamara.BackColor = System.Drawing.Color.Transparent;
+            this.btnCamara.FlatAppearance.BorderSize = 0;
+            this.btnCamara.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCamara.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCamara.ForeColor = System.Drawing.Color.Black;
+            this.btnCamara.Image = ((System.Drawing.Image)(resources.GetObject("btnCamara.Image")));
+            this.btnCamara.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCamara.Location = new System.Drawing.Point(-2, 422);
+            this.btnCamara.Name = "btnCamara";
+            this.btnCamara.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnCamara.Size = new System.Drawing.Size(251, 36);
+            this.btnCamara.TabIndex = 45;
+            this.btnCamara.Text = "          Camara De Seguridad";
+            this.btnCamara.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCamara.UseVisualStyleBackColor = false;
+            this.btnCamara.Click += new System.EventHandler(this.btnCamara_Click);
+            // 
+            // btnHistorialDeVentas
+            // 
+            this.btnHistorialDeVentas.BackColor = System.Drawing.Color.Transparent;
+            this.btnHistorialDeVentas.FlatAppearance.BorderSize = 0;
+            this.btnHistorialDeVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorialDeVentas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorialDeVentas.ForeColor = System.Drawing.Color.Black;
+            this.btnHistorialDeVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnHistorialDeVentas.Image")));
+            this.btnHistorialDeVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialDeVentas.Location = new System.Drawing.Point(0, 359);
+            this.btnHistorialDeVentas.Name = "btnHistorialDeVentas";
+            this.btnHistorialDeVentas.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnHistorialDeVentas.Size = new System.Drawing.Size(252, 43);
+            this.btnHistorialDeVentas.TabIndex = 45;
+            this.btnHistorialDeVentas.Text = "          Historial De Ventas";
+            this.btnHistorialDeVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialDeVentas.UseVisualStyleBackColor = false;
+            this.btnHistorialDeVentas.Click += new System.EventHandler(this.btnHistorialDeVentas_Click);
+            this.btnHistorialDeVentas.MouseEnter += new System.EventHandler(this.btnHistorialDeVentas_MouseEnter);
+            this.btnHistorialDeVentas.MouseLeave += new System.EventHandler(this.btnHistorialDeVentas_MouseLeave);
             // 
             // panel3
             // 
@@ -234,7 +265,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(32, 32);
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // lbHora
             // 
@@ -248,7 +278,6 @@
             this.lbHora.Size = new System.Drawing.Size(97, 35);
             this.lbHora.TabIndex = 7;
             this.lbHora.Text = "hora";
-            this.lbHora.Click += new System.EventHandler(this.lbHora_Click);
             // 
             // label1
             // 
@@ -271,7 +300,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // lbTiempo
             // 
@@ -342,12 +370,16 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnCamara);
+            this.panel1.Controls.Add(this.PanelHistorialDeVenta);
+            this.panel1.Controls.Add(this.btnHistorialDeVentas);
             this.panel1.Controls.Add(this.PanelProveedores);
             this.panel1.Controls.Add(this.PanelUsuario);
             this.panel1.Controls.Add(this.PanelArticulos);
             this.panel1.Controls.Add(this.PanelVenta);
             this.panel1.Controls.Add(this.btnProveedores);
             this.panel1.Controls.Add(this.btnUsuarios);
+            this.panel1.Controls.Add(this.lblUsuarioId);
             this.panel1.Controls.Add(this.lbNombre);
             this.panel1.Controls.Add(this.lbTiempo);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -391,83 +423,23 @@
             this.PanelVenta.Size = new System.Drawing.Size(5, 43);
             this.PanelVenta.TabIndex = 46;
             // 
-            // btnCamara
+            // lblUsuarioId
             // 
-            this.btnCamara.BackColor = System.Drawing.Color.Transparent;
-            this.btnCamara.FlatAppearance.BorderSize = 0;
-            this.btnCamara.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCamara.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCamara.ForeColor = System.Drawing.Color.Black;
-            this.btnCamara.Image = ((System.Drawing.Image)(resources.GetObject("btnCamara.Image")));
-            this.btnCamara.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCamara.Location = new System.Drawing.Point(361, 370);
-            this.btnCamara.Name = "btnCamara";
-            this.btnCamara.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnCamara.Size = new System.Drawing.Size(219, 49);
-            this.btnCamara.TabIndex = 45;
-            this.btnCamara.Text = "          Camara De Seguridad";
-            this.btnCamara.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCamara.UseVisualStyleBackColor = false;
-            this.btnCamara.Click += new System.EventHandler(this.btnCamara_Click);
+            this.lblUsuarioId.AutoSize = true;
+            this.lblUsuarioId.Font = new System.Drawing.Font("Unispace", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblUsuarioId.Location = new System.Drawing.Point(144, 111);
+            this.lblUsuarioId.Name = "lblUsuarioId";
+            this.lblUsuarioId.Size = new System.Drawing.Size(62, 18);
+            this.lblUsuarioId.TabIndex = 3;
+            this.lblUsuarioId.Text = "Nombre";
             // 
-            // PanelStock
+            // PanelHistorialDeVenta
             // 
-            this.PanelStock.Location = new System.Drawing.Point(337, 334);
-            this.PanelStock.Name = "PanelStock";
-            this.PanelStock.Size = new System.Drawing.Size(3, 28);
-            this.PanelStock.TabIndex = 46;
-            // 
-            // PanelHistorialVentas
-            // 
-            this.PanelHistorialVentas.Location = new System.Drawing.Point(337, 287);
-            this.PanelHistorialVentas.Name = "PanelHistorialVentas";
-            this.PanelHistorialVentas.Size = new System.Drawing.Size(3, 28);
-            this.PanelHistorialVentas.TabIndex = 46;
-            // 
-            // PanelCamraDeSeguridad
-            // 
-            this.PanelCamraDeSeguridad.Location = new System.Drawing.Point(338, 374);
-            this.PanelCamraDeSeguridad.Name = "PanelCamraDeSeguridad";
-            this.PanelCamraDeSeguridad.Size = new System.Drawing.Size(3, 28);
-            this.PanelCamraDeSeguridad.TabIndex = 46;
-            // 
-            // btnStock
-            // 
-            this.btnStock.BackColor = System.Drawing.Color.Transparent;
-            this.btnStock.FlatAppearance.BorderSize = 0;
-            this.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStock.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStock.ForeColor = System.Drawing.Color.Black;
-            this.btnStock.Image = ((System.Drawing.Image)(resources.GetObject("btnStock.Image")));
-            this.btnStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStock.Location = new System.Drawing.Point(335, 321);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnStock.Size = new System.Drawing.Size(252, 43);
-            this.btnStock.TabIndex = 45;
-            this.btnStock.Text = "          Stock";
-            this.btnStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStock.UseVisualStyleBackColor = false;
-            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
-            // 
-            // btnHistorialVentas
-            // 
-            this.btnHistorialVentas.BackColor = System.Drawing.Color.Transparent;
-            this.btnHistorialVentas.FlatAppearance.BorderSize = 0;
-            this.btnHistorialVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorialVentas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistorialVentas.ForeColor = System.Drawing.Color.Black;
-            this.btnHistorialVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnHistorialVentas.Image")));
-            this.btnHistorialVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorialVentas.Location = new System.Drawing.Point(335, 275);
-            this.btnHistorialVentas.Name = "btnHistorialVentas";
-            this.btnHistorialVentas.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnHistorialVentas.Size = new System.Drawing.Size(252, 43);
-            this.btnHistorialVentas.TabIndex = 45;
-            this.btnHistorialVentas.Text = "          Historial De ventas";
-            this.btnHistorialVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorialVentas.UseVisualStyleBackColor = false;
-            this.btnHistorialVentas.Click += new System.EventHandler(this.btnHistorialVentas_Click);
+            this.PanelHistorialDeVenta.Location = new System.Drawing.Point(0, 359);
+            this.PanelHistorialDeVenta.Name = "PanelHistorialDeVenta";
+            this.PanelHistorialDeVenta.Size = new System.Drawing.Size(5, 43);
+            this.PanelHistorialDeVenta.TabIndex = 46;
             // 
             // Administrador
             // 
@@ -488,7 +460,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.PanelAdministrador.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -533,11 +504,9 @@
         private System.Windows.Forms.Panel PanelProveedores;
         private System.Windows.Forms.Panel PanelUsuario;
         private System.Windows.Forms.Panel PanelArticulos;
-        private System.Windows.Forms.Button btnStock;
-        private System.Windows.Forms.Button btnHistorialVentas;
+        private System.Windows.Forms.Button btnHistorialDeVentas;
         private System.Windows.Forms.Button btnCamara;
-        private System.Windows.Forms.Panel PanelStock;
-        private System.Windows.Forms.Panel PanelHistorialVentas;
-        private System.Windows.Forms.Panel PanelCamraDeSeguridad;
+        private System.Windows.Forms.Label lblUsuarioId;
+        private System.Windows.Forms.Panel PanelHistorialDeVenta;
     }
 }

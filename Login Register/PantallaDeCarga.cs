@@ -12,10 +12,11 @@ namespace Login_Los_2_chinos.Login_Register
 {
     public partial class PantallaDeCarga : Form
     {
-        public PantallaDeCarga(string Nombre)
+        public PantallaDeCarga(string Nombre,int UsuarioId)
         {
             InitializeComponent();
             lblNombre.Text = Nombre;
+            lblusuarioid.Text = UsuarioId.ToString();
 
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -36,7 +37,7 @@ namespace Login_Los_2_chinos.Login_Register
             {
                 timer2.Stop();
                 this.Visible = false;
-                var VentanaAdministrador = new Administrador(lblNombre.Text);
+                var VentanaAdministrador = new Administrador(lblNombre.Text, lblusuarioid.Text);
                 VentanaAdministrador.Show();
             }
         }
