@@ -501,55 +501,65 @@ namespace Login_Los_2_chinos.Venta
                 }
             }
         }
+        int Cont = 0;
         private void AgregarProductoGramos(string codigoBarra, int stock, SqlDataReader reader)
         {
-            // Si la presentación es 1000, muestra un cuadro de diálogo para que el usuario ingrese la cantidad en gramos
-            FormCantidadEnGramos cantidadEnGramosForm = new FormCantidadEnGramos();
-            if (cantidadEnGramosForm.ShowDialog() == DialogResult.OK)
+            Cont++;
+            if (Cont == 1)
             {
-                // El usuario ingresó la cantidad en gramos en el cuadro de diálogo
-                int cantidadEnGramos = cantidadEnGramosForm.CantidadEnGramos;
-
-                // Verifica si hay suficiente stock para agregar la cantidad en gramos
-                if (stock >= cantidadEnGramos)
+                // Si la presentación es 1000, muestra un cuadro de diálogo para que el usuario ingrese la cantidad en gramos
+                FormCantidadEnGramos cantidadEnGramosForm = new FormCantidadEnGramos();
+                if (cantidadEnGramosForm.ShowDialog() == DialogResult.OK)
                 {
-                    string detalle = reader["Detalle"].ToString();
-                    decimal precioVenta = Convert.ToDecimal(reader["PrecioVenta"]);
+                    // El usuario ingresó la cantidad en gramos en el cuadro de diálogo
+                    int cantidadEnGramos = cantidadEnGramosForm.CantidadEnGramos;
 
-                    // Verifica si el producto ya está en el carrito
-                    CarritoItem productoExistente = carrito.FirstOrDefault(item => item.CodigoBarra == codigoBarra);
-                    if (productoExistente != null)
+                    // Verifica si hay suficiente stock para agregar la cantidad en gramos
+                    if (stock >= cantidadEnGramos)
                     {
-                        // Si el producto ya está en el carrito, aumenta la cantidad en gramos
-                        if (productoExistente.CantidadEnGramos + cantidadEnGramos <= stock)
+                        string detalle = reader["Detalle"].ToString();
+                        decimal precioVenta = Convert.ToDecimal(reader["PrecioVenta"]);
+
+                        // Verifica si el producto ya está en el carrito
+                        CarritoItem productoExistente = carrito.FirstOrDefault(item => item.CodigoBarra == codigoBarra);
+                        if (productoExistente != null)
                         {
-                            productoExistente.CantidadEnGramos += cantidadEnGramos;
-                            // Actualiza la cantidad en la fila correspondiente del DataGridView
-                            foreach (DataGridViewRow row in dtgCarrito.Rows)
+                            // Si el producto ya está en el carrito, aumenta la cantidad en gramos
+                            if (productoExistente.CantidadEnGramos + cantidadEnGramos <= stock)
                             {
-                                if (row.Cells["CodigoDeBarra"].Value.ToString() == codigoBarra)
+                                productoExistente.CantidadEnGramos += cantidadEnGramos;
+                                // Actualiza la cantidad en la fila correspondiente del DataGridView
+                                foreach (DataGridViewRow row in dtgCarrito.Rows)
                                 {
-                                    row.Cells["CantidadEnGramos"].Value = productoExistente.CantidadEnGramos;
-                                    break;
+                                    if (row.Cells["CodigoDeBarra"].Value.ToString() == codigoBarra)
+                                    {
+                                        row.Cells["CantidadEnGramos"].Value = productoExistente.CantidadEnGramos;
+                                        break;
+                                    }
                                 }
                             }
+                            else MessageBox.Show("No hay suficiente stock para este producto.", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                        else MessageBox.Show("No hay suficiente stock para este producto.", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        // Si el producto no está en el carrito, agrégalo con la cantidad en gramos
-                        CarritoItem itemPorGramo = new CarritoItem(codigoBarra, detalle, precioVenta, cantidadEnGramos, 0);
-                        carrito.Add(itemPorGramo);
-                        dtgCarrito.Rows.Add(codigoBarra, detalle, precioVenta, cantidadEnGramos, 0);
+                        else
+                        {
+                            // Si el producto no está en el carrito, agrégalo con la cantidad en gramos
+                            CarritoItem itemPorGramo = new CarritoItem(codigoBarra, detalle, precioVenta, cantidadEnGramos, 0);
+                            carrito.Add(itemPorGramo);
+                            dtgCarrito.Rows.Add(codigoBarra, detalle, precioVenta, cantidadEnGramos, 0);
 
-                        // Reduce el stock del producto en la base de datos
-                        // ActualizarStockEnBaseDeDatos(codigoBarra,0, cantidadEnGramos);
+                            // Reduce el stock del producto en la base de datos
+                            // ActualizarStockEnBaseDeDatos(codigoBarra,0, cantidadEnGramos);
+                        }
+                        ActualizarTotal_Y_Vuetlo();
+                        txtBuscarCodigoBarra.Clear();
                     }
-                    ActualizarTotal_Y_Vuetlo();
-                    txtBuscarCodigoBarra.Clear();
+                    else MessageBox.Show("No hay suficiente stock para este producto.", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else MessageBox.Show("No hay suficiente stock para este producto.", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Cont = 0;
+            }
+            else
+            {
+
             }
         }
 

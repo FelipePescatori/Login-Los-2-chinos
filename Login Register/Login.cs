@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
-using Login_Los_2_chinos.Login_Register;
+
 using UserEsquema;
 
 namespace Login_Los_2_chinos
@@ -24,10 +24,10 @@ namespace Login_Los_2_chinos
         SqlConnection conn = new SqlConnection("Server=FELIPE\\SQLEXPRESS;Database=Los 2 Chinos;Trusted_Connection=True");
 
         #region METODOS VALIDAR DATOS USUARIO
-
         public int login(string Usuario, string Contrasena)
         {
             int usuarioID = -1;  // Valor por defecto en caso de que no se encuentre un usuario válido
+            bool AccesoAdmin = false; // Valor por defecto
 
             try
             {
@@ -44,12 +44,13 @@ namespace Login_Los_2_chinos
                     this.Hide();
                     if (dt.Rows[0]["Acceso"].ToString() == "Administrador")
                     {
-                        new PantallaDeCarga(dt.Rows[0]["Nombre"].ToString(), usuarioID).Show();
-
+                        AccesoAdmin = true;
+                        new Administrador(dt.Rows[0]["Nombre"].ToString(), usuarioID, AccesoAdmin).Show();
                     }
-                    else if ((dt.Rows[0][1].ToString() == "Operador"))
+                    else if (dt.Rows[0]["Acceso"].ToString() == "Operador")
                     {
-                        new Operador(dt.Rows[0][0].ToString()).Show();
+                        AccesoAdmin = false;
+                        new Administrador(dt.Rows[0]["Nombre"].ToString(), usuarioID, AccesoAdmin).Show();
                     }
                 }
                 else

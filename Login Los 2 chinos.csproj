@@ -50,7 +50,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>gerente.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <Win32Resource>
@@ -74,12 +75,6 @@
     </Reference>
     <Reference Include="AForge.Vision, Version=2.2.5.0, Culture=neutral, PublicKeyToken=b612fa915eefaa06, processorArchitecture=MSIL">
       <HintPath>packages\AForge.Vision.2.2.5\lib\AForge.Vision.dll</HintPath>
-    </Reference>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>C:\Users\felip\OneDrive\Escritorio\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>packages\FluentValidation.11.7.1\lib\netstandard2.0\FluentValidation.dll</HintPath>
@@ -132,28 +127,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormCamaras.cs">
+    <Compile Include="Camaras\FormCamaras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCamaras.Designer.cs">
+    <Compile Include="Camaras\FormCamaras.Designer.cs">
       <DependentUpon>FormCamaras.cs</DependentUpon>
     </Compile>
-    <Compile Include="FromUsuarios.cs">
+    <Compile Include="Usuarios\FromUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FromUsuarios.Designer.cs">
+    <Compile Include="Usuarios\FromUsuarios.Designer.cs">
       <DependentUpon>FromUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login Register\PantallaDeCarga.cs">
+    <Compile Include="Administrador\Administrador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login Register\PantallaDeCarga.Designer.cs">
-      <DependentUpon>PantallaDeCarga.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Paneles\Administrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Paneles\Administrador.Designer.cs">
+    <Compile Include="Administrador\Administrador.Designer.cs">
       <DependentUpon>Administrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Articulos\Articulos.cs" />
@@ -180,17 +169,11 @@
     <Compile Include="Articulos\FromAgregar.Designer.cs">
       <DependentUpon>FromAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Paneles\MessageBoxFrom.cs">
+    <Compile Include="Administrador\MessageBoxFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Paneles\MessageBoxFrom.Designer.cs">
+    <Compile Include="Administrador\MessageBoxFrom.Designer.cs">
       <DependentUpon>MessageBoxFrom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Paneles\Operador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Paneles\Operador.Designer.cs">
-      <DependentUpon>Operador.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -222,16 +205,13 @@
       <DependentUpon>FormVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Venta\TicketVenta.cs" />
-    <EmbeddedResource Include="FormCamaras.resx">
+    <EmbeddedResource Include="Camaras\FormCamaras.resx">
       <DependentUpon>FormCamaras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FromUsuarios.resx">
+    <EmbeddedResource Include="Usuarios\FromUsuarios.resx">
       <DependentUpon>FromUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login Register\PantallaDeCarga.resx">
-      <DependentUpon>PantallaDeCarga.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Paneles\Administrador.resx">
+    <EmbeddedResource Include="Administrador\Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedores\FromPorveedores.resx">
@@ -243,11 +223,8 @@
     <EmbeddedResource Include="Articulos\FromAgregar.resx">
       <DependentUpon>FromAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Paneles\MessageBoxFrom.resx">
+    <EmbeddedResource Include="Administrador\MessageBoxFrom.resx">
       <DependentUpon>MessageBoxFrom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Paneles\Operador.resx">
-      <DependentUpon>Operador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -285,9 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Venta\Tickets\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="gerente.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

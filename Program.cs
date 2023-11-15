@@ -1,4 +1,4 @@
-﻿using Login_Los_2_chinos.Login_Register;
+﻿
 using Login_Los_2_chinos.Venta;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace Login_Los_2_chinos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Administrador("s","s"));
+            Application.Run(new Login());
         }
     }
 }

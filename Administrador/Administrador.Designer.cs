@@ -47,19 +47,23 @@
             this.btnVenta = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbHora = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbTiempo = new System.Windows.Forms.Label();
             this.lbNombre = new System.Windows.Forms.Label();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PanelCamaras = new System.Windows.Forms.Panel();
+            this.PanelHistorialDeVenta = new System.Windows.Forms.Panel();
             this.PanelProveedores = new System.Windows.Forms.Panel();
             this.PanelUsuario = new System.Windows.Forms.Panel();
             this.PanelArticulos = new System.Windows.Forms.Panel();
             this.PanelVenta = new System.Windows.Forms.Panel();
             this.lblUsuarioId = new System.Windows.Forms.Label();
-            this.PanelHistorialDeVenta = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAcceso = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
@@ -80,7 +84,7 @@
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1023, 6);
+            this.pictureBox4.Location = new System.Drawing.Point(1098, 6);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(16, 16);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -93,7 +97,7 @@
             this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(1086, 6);
+            this.pictureBox5.Location = new System.Drawing.Point(1161, 6);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(16, 16);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -110,14 +114,15 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1125, 30);
+            this.panel2.Size = new System.Drawing.Size(1200, 30);
             this.panel2.TabIndex = 14;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
             // pictureBox6
             // 
             this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(1054, 6);
+            this.pictureBox6.Location = new System.Drawing.Point(1129, 6);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(16, 16);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -130,7 +135,7 @@
             this.PanelAdministrador.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelAdministrador.Location = new System.Drawing.Point(252, 30);
             this.PanelAdministrador.Name = "PanelAdministrador";
-            this.PanelAdministrador.Size = new System.Drawing.Size(873, 570);
+            this.PanelAdministrador.Size = new System.Drawing.Size(948, 670);
             this.PanelAdministrador.TabIndex = 15;
             // 
             // btnCamara
@@ -142,15 +147,17 @@
             this.btnCamara.ForeColor = System.Drawing.Color.Black;
             this.btnCamara.Image = ((System.Drawing.Image)(resources.GetObject("btnCamara.Image")));
             this.btnCamara.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCamara.Location = new System.Drawing.Point(-2, 422);
+            this.btnCamara.Location = new System.Drawing.Point(-1, 473);
             this.btnCamara.Name = "btnCamara";
             this.btnCamara.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnCamara.Size = new System.Drawing.Size(251, 36);
+            this.btnCamara.Size = new System.Drawing.Size(252, 43);
             this.btnCamara.TabIndex = 45;
             this.btnCamara.Text = "          Camara De Seguridad";
             this.btnCamara.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCamara.UseVisualStyleBackColor = false;
             this.btnCamara.Click += new System.EventHandler(this.btnCamara_Click);
+            this.btnCamara.MouseEnter += new System.EventHandler(this.btnCamara_MouseEnter);
+            this.btnCamara.MouseLeave += new System.EventHandler(this.btnCamara_MouseLeave);
             // 
             // btnHistorialDeVentas
             // 
@@ -161,7 +168,7 @@
             this.btnHistorialDeVentas.ForeColor = System.Drawing.Color.Black;
             this.btnHistorialDeVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnHistorialDeVentas.Image")));
             this.btnHistorialDeVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorialDeVentas.Location = new System.Drawing.Point(0, 359);
+            this.btnHistorialDeVentas.Location = new System.Drawing.Point(0, 422);
             this.btnHistorialDeVentas.Name = "btnHistorialDeVentas";
             this.btnHistorialDeVentas.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnHistorialDeVentas.Size = new System.Drawing.Size(252, 43);
@@ -183,7 +190,7 @@
             // panel4
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.panel4.Location = new System.Drawing.Point(1122, -868);
+            this.panel4.Location = new System.Drawing.Point(1197, -818);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(3, 2000);
             this.panel4.TabIndex = 0;
@@ -191,7 +198,7 @@
             // panel5
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.panel5.Location = new System.Drawing.Point(-671, 597);
+            this.panel5.Location = new System.Drawing.Point(-633, 697);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(2000, 3);
             this.panel5.TabIndex = 0;
@@ -206,9 +213,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(70, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(47, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(135, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -222,7 +229,7 @@
             this.btnArticulos.ForeColor = System.Drawing.Color.Black;
             this.btnArticulos.Image = ((System.Drawing.Image)(resources.GetObject("btnArticulos.Image")));
             this.btnArticulos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArticulos.Location = new System.Drawing.Point(0, 201);
+            this.btnArticulos.Location = new System.Drawing.Point(0, 269);
             this.btnArticulos.Name = "btnArticulos";
             this.btnArticulos.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnArticulos.Size = new System.Drawing.Size(252, 43);
@@ -243,7 +250,7 @@
             this.btnVenta.ForeColor = System.Drawing.Color.Black;
             this.btnVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnVenta.Image")));
             this.btnVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVenta.Location = new System.Drawing.Point(0, 149);
+            this.btnVenta.Location = new System.Drawing.Point(0, 218);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnVenta.Size = new System.Drawing.Size(252, 43);
@@ -260,7 +267,7 @@
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(3, 530);
+            this.pictureBox3.Location = new System.Drawing.Point(3, 630);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 32);
             this.pictureBox3.TabIndex = 10;
@@ -273,29 +280,18 @@
             this.lbHora.BackColor = System.Drawing.Color.White;
             this.lbHora.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbHora.Location = new System.Drawing.Point(41, 495);
+            this.lbHora.Location = new System.Drawing.Point(41, 595);
             this.lbHora.Name = "lbHora";
             this.lbHora.Size = new System.Drawing.Size(97, 35);
             this.lbHora.TabIndex = 7;
             this.lbHora.Text = "hora";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(44, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "ADMINISTRADOR";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 495);
+            this.pictureBox2.Location = new System.Drawing.Point(3, 595);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.TabIndex = 9;
@@ -308,7 +304,7 @@
             this.lbTiempo.BackColor = System.Drawing.Color.White;
             this.lbTiempo.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTiempo.ForeColor = System.Drawing.Color.Gray;
-            this.lbTiempo.Location = new System.Drawing.Point(41, 530);
+            this.lbTiempo.Location = new System.Drawing.Point(41, 630);
             this.lbTiempo.Name = "lbTiempo";
             this.lbTiempo.Size = new System.Drawing.Size(124, 35);
             this.lbTiempo.TabIndex = 8;
@@ -317,11 +313,11 @@
             // lbNombre
             // 
             this.lbNombre.AutoSize = true;
-            this.lbNombre.Font = new System.Drawing.Font("Unispace", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombre.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.lbNombre.Location = new System.Drawing.Point(76, 111);
+            this.lbNombre.Location = new System.Drawing.Point(75, 152);
             this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(62, 18);
+            this.lbNombre.Size = new System.Drawing.Size(56, 16);
             this.lbNombre.TabIndex = 3;
             this.lbNombre.Text = "Nombre";
             // 
@@ -334,12 +330,12 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.Black;
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(0, 257);
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 320);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnUsuarios.Size = new System.Drawing.Size(252, 43);
             this.btnUsuarios.TabIndex = 45;
-            this.btnUsuarios.Text = "          Registrar Usuario";
+            this.btnUsuarios.Text = "          Usuario";
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsuarios.UseVisualStyleBackColor = false;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
@@ -355,7 +351,7 @@
             this.btnProveedores.ForeColor = System.Drawing.Color.Black;
             this.btnProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Image")));
             this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.Location = new System.Drawing.Point(0, 304);
+            this.btnProveedores.Location = new System.Drawing.Point(0, 371);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnProveedores.Size = new System.Drawing.Size(252, 43);
@@ -370,7 +366,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnCamara);
+            this.panel1.Controls.Add(this.txtAcceso);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.PanelCamaras);
             this.panel1.Controls.Add(this.PanelHistorialDeVenta);
             this.panel1.Controls.Add(this.btnHistorialDeVentas);
             this.panel1.Controls.Add(this.PanelProveedores);
@@ -383,42 +383,56 @@
             this.panel1.Controls.Add(this.lbNombre);
             this.panel1.Controls.Add(this.lbTiempo);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lbHora);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.btnArticulos);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnVenta);
+            this.panel1.Controls.Add(this.btnCamara);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(252, 570);
+            this.panel1.Size = new System.Drawing.Size(252, 670);
             this.panel1.TabIndex = 11;
+            // 
+            // PanelCamaras
+            // 
+            this.PanelCamaras.Location = new System.Drawing.Point(0, 473);
+            this.PanelCamaras.Name = "PanelCamaras";
+            this.PanelCamaras.Size = new System.Drawing.Size(5, 43);
+            this.PanelCamaras.TabIndex = 46;
+            // 
+            // PanelHistorialDeVenta
+            // 
+            this.PanelHistorialDeVenta.Location = new System.Drawing.Point(0, 422);
+            this.PanelHistorialDeVenta.Name = "PanelHistorialDeVenta";
+            this.PanelHistorialDeVenta.Size = new System.Drawing.Size(5, 43);
+            this.PanelHistorialDeVenta.TabIndex = 46;
             // 
             // PanelProveedores
             // 
-            this.PanelProveedores.Location = new System.Drawing.Point(0, 304);
+            this.PanelProveedores.Location = new System.Drawing.Point(0, 371);
             this.PanelProveedores.Name = "PanelProveedores";
             this.PanelProveedores.Size = new System.Drawing.Size(5, 43);
             this.PanelProveedores.TabIndex = 46;
             // 
             // PanelUsuario
             // 
-            this.PanelUsuario.Location = new System.Drawing.Point(0, 257);
+            this.PanelUsuario.Location = new System.Drawing.Point(0, 320);
             this.PanelUsuario.Name = "PanelUsuario";
             this.PanelUsuario.Size = new System.Drawing.Size(5, 43);
             this.PanelUsuario.TabIndex = 46;
             // 
             // PanelArticulos
             // 
-            this.PanelArticulos.Location = new System.Drawing.Point(0, 201);
+            this.PanelArticulos.Location = new System.Drawing.Point(0, 269);
             this.PanelArticulos.Name = "PanelArticulos";
             this.PanelArticulos.Size = new System.Drawing.Size(5, 43);
             this.PanelArticulos.TabIndex = 46;
             // 
             // PanelVenta
             // 
-            this.PanelVenta.Location = new System.Drawing.Point(0, 149);
+            this.PanelVenta.Location = new System.Drawing.Point(0, 218);
             this.PanelVenta.Name = "PanelVenta";
             this.PanelVenta.Size = new System.Drawing.Size(5, 43);
             this.PanelVenta.TabIndex = 46;
@@ -426,25 +440,58 @@
             // lblUsuarioId
             // 
             this.lblUsuarioId.AutoSize = true;
-            this.lblUsuarioId.Font = new System.Drawing.Font("Unispace", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioId.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.lblUsuarioId.Location = new System.Drawing.Point(144, 111);
+            this.lblUsuarioId.Location = new System.Drawing.Point(89, 171);
             this.lblUsuarioId.Name = "lblUsuarioId";
-            this.lblUsuarioId.Size = new System.Drawing.Size(62, 18);
+            this.lblUsuarioId.Size = new System.Drawing.Size(69, 16);
             this.lblUsuarioId.TabIndex = 3;
-            this.lblUsuarioId.Text = "Nombre";
+            this.lblUsuarioId.Text = "UsuarioID";
             // 
-            // PanelHistorialDeVenta
+            // label1
             // 
-            this.PanelHistorialDeVenta.Location = new System.Drawing.Point(0, 359);
-            this.PanelHistorialDeVenta.Name = "PanelHistorialDeVenta";
-            this.PanelHistorialDeVenta.Size = new System.Drawing.Size(5, 43);
-            this.PanelHistorialDeVenta.TabIndex = 46;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 152);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 151);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 16);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "Nombre:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 171);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 16);
+            this.label3.TabIndex = 47;
+            this.label3.Text = "UsuarioID:";
+            // 
+            // txtAcceso
+            // 
+            this.txtAcceso.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAcceso.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtAcceso.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
+            this.txtAcceso.Location = new System.Drawing.Point(38, 114);
+            this.txtAcceso.Name = "txtAcceso";
+            this.txtAcceso.Size = new System.Drawing.Size(165, 19);
+            this.txtAcceso.TabIndex = 48;
+            this.txtAcceso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Administrador
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(1125, 600);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.PanelAdministrador);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
@@ -493,7 +540,6 @@
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lbHora;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbTiempo;
         private System.Windows.Forms.Label lbNombre;
@@ -508,5 +554,10 @@
         private System.Windows.Forms.Button btnCamara;
         private System.Windows.Forms.Label lblUsuarioId;
         private System.Windows.Forms.Panel PanelHistorialDeVenta;
+        private System.Windows.Forms.Panel PanelCamaras;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAcceso;
     }
 }

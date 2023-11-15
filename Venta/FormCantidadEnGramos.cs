@@ -32,5 +32,11 @@ namespace Login_Los_2_chinos.Venta
                 MessageBox.Show("Ingrese una cantidad válida en gramos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void FormCantidadEnGramos_Load(object sender, EventArgs e)
+        {
+            txtCantidadEnGramos.Focus();
+
+        }
     }
 }

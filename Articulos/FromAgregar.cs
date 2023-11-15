@@ -102,7 +102,7 @@ namespace Login_Los_2_chinos
                 if (decimal.TryParse(txtVenta.Text, out decimal precioVenta) &&
                     decimal.TryParse(txtCompra.Text, out decimal precioCompra))
                 {
-                    SqlCommand comando = new SqlCommand("UPDATE Articulos SET CodigoBarras =@codigoBarras, detalle = @detalle, presentacion = @presentacion, PrecioVenta = @PrecioVenta, PrecioCompra = @PrecioCompra, Stock = @Stock WHERE Articuloid = @articuloid", conn);
+                    SqlCommand comando = new SqlCommand("UPDATE Articulos SET CodigoBarras = @codigoBarras, detalle = @detalle, presentacion = @presentacion, PrecioVenta = @PrecioVenta, PrecioCompra = @PrecioCompra, Stock = @Stock WHERE Articuloid = @articuloid", conn);
                     comando.Parameters.AddWithValue("@codigoBarras", txtCodigoBarra.Text);
                     comando.Parameters.AddWithValue("@detalle", txtDetalle.Text);
                     comando.Parameters.AddWithValue("@presentacion", txtPresentacion.Text);
