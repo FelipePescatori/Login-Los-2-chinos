@@ -1,27 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
-
-using UserEsquema;
+using System.Configuration;
 
 namespace Login_Los_2_chinos
 {
     public partial class Login : Form
     {
+        string connectionString;
+        SqlConnection conn;
         public Login()
         {
             InitializeComponent();
+            // Inicializar la cadena de conexión y la conexión en el constructor
+            connectionString = ConfigurationManager.ConnectionStrings["MiConexionBD"].ConnectionString;
+            conn = new SqlConnection(connectionString);
         }
-
-        SqlConnection conn = new SqlConnection("Server=FELIPE\\SQLEXPRESS;Database=Los 2 Chinos;Trusted_Connection=True");
 
         #region METODOS VALIDAR DATOS USUARIO
         public int login(string Usuario, string Contrasena)
